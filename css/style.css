@@ -160,12 +160,16 @@ footer a {
 
 div.image {
   overflow: hidden;
-  border-radius: 10px;
 }
 
 div.image img {
   transform: translate(0, 120%);
   transition: transform 1s 0.25s var(--timing);
+}
+
+div.image,
+div.image img {
+  border-radius: 10px;
 }
 
 div.image.in-view img {
