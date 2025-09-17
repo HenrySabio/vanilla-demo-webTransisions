@@ -111,7 +111,7 @@ section a:hover img {
 
 section div.main img {
   width: 100%;
-  min-height: 400px;
+  max-height: 700px;
   height: calc(100vh - 300px);
   object-fit: cover;
 }
@@ -175,7 +175,7 @@ div.image.in-view img {
 /* ------------------ Responsive Layout ------------------ */
 
 /* Tablet (<= 786px): 2 columns, slightly smaller type */
-@media (max-width: 786px) {
+@media (max-width: 991px) {
 
   section,
   footer {
