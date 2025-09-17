@@ -33,15 +33,20 @@ barba.init({
         name: 'switch',
         once({ current, next, trigger }) {
             return new Promise(resolve => {
-                const timeline = gsap.timeline({
-                    onComplete() {
-                        resolve()
-                    }
-                })
+                const images = document.querySelectorAll('img');
 
-                timeline
-                    .set(next.container, { opacity: 0 })
-                    .to(next.container, { opacity: 1, delay: 1 })
+                gsap.set(next.container, { opacity: 0 })
+
+                imagesLoaded(images, () => {
+                    const timeline = gsap.timeline({
+                        onComplete() {
+                            resolve()
+                        }
+                    })
+    
+                    timeline
+                        .to(next.container, { opacity: 1, delay: 1 })
+                })
             })
         },
         leave({ current, next, trigger }) {
@@ -62,7 +67,12 @@ barba.init({
         enter({ current, next, trigger }) {
 
             return new Promise(resolve => {
-                window.scrollTo({ top: 0, behavior: 'smooth' })
+                gsap.set(next.container, { opacity: 0 })
+                
+                window.scrollTo({ 
+                    top: 0, 
+                    behavior: 'smooth' 
+                })
 
                 const timeline = gsap.timeline({
                     onComplete() {
@@ -75,7 +85,7 @@ barba.init({
                     .set(next.container, { opacity: 0 })
                     .to("header", { y: "0%" })
                     .to("footer", { y: "0%" })
-                    .to(next.container, { opacity: 1 })
+                    .to(next.container, { opacity: 1, delay: 0.5 })
             })
         }
     }],
