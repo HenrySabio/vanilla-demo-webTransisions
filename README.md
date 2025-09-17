@@ -36,3 +36,4 @@ It demonstrates proficiency in:
 
 ---
 **Author:** Henry Sabio
+**Note:** All images used in this project are original works created by the author. All rights and copyrights are reserved.
