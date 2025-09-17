@@ -35,7 +35,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  height: 128px;
+  height: 96px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,7 +44,7 @@ header {
 
 section,
 footer {
-  padding: 128px 96px;
+  padding: 128px 72px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 48px 48px;
@@ -95,7 +95,6 @@ div.main .sticky {
   position: -webkit-sticky;
   position: sticky;
   top: 128px;
-
   display: block;
 }
 
@@ -133,7 +132,6 @@ section.memories {
   background-color: var(--highlight-color);
   color: var(--text-color);
   padding: 64px 96px;
-
   grid-template-columns: repeat(2, 1fr);
 }
 
@@ -172,4 +170,85 @@ div.image img {
 
 div.image.in-view img {
   transform: translate(0, 0);
+}
+
+/* ------------------ Responsive Layout ------------------ */
+
+/* Tablet (<= 786px): 2 columns, slightly smaller type */
+@media (max-width: 786px) {
+
+  section,
+  footer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  section div.main,
+  div.post,
+  footer p.socials {
+    grid-column: span 2;
+  }
+
+  section div.main img {
+    max-height: 400px;
+  }
+
+  body {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  div.post h2 {
+    font-size: 36px;
+  }
+}
+
+/* Mobile (<= 480px): 1 column, tighter spacing + smaller type */
+@media (max-width: 480px) {
+
+  section,
+  footer {
+    grid-template-columns: 1fr;
+    padding: 96px 32px;
+  }
+
+  section div.main,
+  div.post,
+  footer p.socials {
+    grid-column: span 1;
+  }
+
+  body {
+    font-size: 16px;
+    line-height: 1.45;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  div.post h2 {
+    font-size: 28px;
+  }
+
+  footer {
+    font-size: 16px;
+    padding: 48px 32px;
+  }
+
+  section.memories {
+    grid-template-columns: 1fr;
+    padding: 48px 32px;
+  }
 }
