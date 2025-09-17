@@ -1,6 +1,5 @@
-console.log('JS loaded');
-
 const headers = document.querySelectorAll('h2, h3');
+const imageWrappers = document.querySelectorAll('div.image');
 
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -18,4 +17,8 @@ const observer = new IntersectionObserver(entries => {
 
 headers.forEach(header => {
     observer.observe(header);
+});
+
+imageWrappers.forEach(wrapper => {
+    observer.observe(wrapper);
 });

@@ -1,5 +1,5 @@
 :root {
-  --story-background-color: #f7d45e;
+  --story-background-color: #8ed0b2;
 
   --text-color: #222222;
   --highlight-color: #ffffff;
@@ -9,7 +9,7 @@
 
 body {
   font-family: Helvetica, Arial;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 300;
   line-height: 1.35;
 
@@ -32,7 +32,8 @@ header {
   z-index: 1;
 }
 
-section, footer {
+section,
+footer {
   padding: 128px 96px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -52,7 +53,8 @@ section a {
   text-decoration: none;
 }
 
-h2, h3 {
+h2,
+h3 {
   font-weight: 700;
   margin-top: 16px;
 }
@@ -73,6 +75,10 @@ h3:before {
 h2.in-view::before,
 h3.in-view::before {
   transform: scale(1);
+}
+
+h2 + p {
+  font-size: 16px;
 }
 
 div.main .sticky {
@@ -98,7 +104,7 @@ section div.main img {
   object-fit: cover;
 }
 
-div.post {  
+div.post {
   grid-column: span 2;
 }
 
@@ -108,6 +114,20 @@ div.post h2 {
 
 div.post p {
   margin: 36px 0 0 0;
+}
+
+section.memories {
+  background-color: var(--highlight-color);
+  color: var(--text-color);
+  grid-template-columns: repeat(2, 1fr);
+}
+
+section.memories h2 {
+  font-size: 26px;
+}
+
+section.memories p {
+  font-size: 24px;
 }
 
 footer {
@@ -123,4 +143,18 @@ footer p.socials {
 footer a {
   display: block;
   color: currentColor;
+}
+
+div.image {
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+div.image img {
+  transform: translate(0, 120%);
+  transition: transform 1s 0.25s var(--timing);
+}
+
+div.image.in-view img {
+  transform: translate(0, 0);
 }
